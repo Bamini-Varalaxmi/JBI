@@ -33,3 +33,15 @@ Each SPARC core has the following units:
 4. Trap logic unit (TLU) includes trap logic and trap program counters. 5. Stream processing unit (SPU) is used for modular arithmetic functions for crypto. 6. Memory management unit (MMU).
 
 7. Floating-point frontend unit (FFU) interfaces to the FPU.
+
+### Instruction Fetch Unit
+
+The thread selection policy is as follows - a switch between the available threads every cycle giving priority to the least recently executed thread. The threads become unavailable due to the long latency operations like loads, branch, MUL, and DIV, as well as to the pipeline stalls like cache misses, traps, and resource conflicts. The loads are speculated as cache hits, and the thread is switched-in with lower priority.
+
+Instruction cache complex has a 16-Kbyte data, 4-way, 32-byte line size with a single ported
+
+instruction tag. It also has dual ported (1R/1W) valid bit array to hold cache line state of valid/invalid. Invalidates access the V-bit array, not the instruction tag. A pseudo-random replacement algorithm is used to replace the cache line.
+
+There is a fully associative instruction TLB with 64 entries. The buffer supports the following page sizes: 8 Kbytes, 64 Kbytes, 4 Mbytes, and 256 Mbytes. The TLB uses a pseudo least recently used (LRU) algorithm for replacement. Multiple hits in the TLB are prevented by doing an autodemap on a fill.
+
+Two instructions are fetched each cycle, though only one instruction is issued per clock, which reduces the instruction cache activity and allows for an opportunistic line fill. There is only one outstanding miss per thread, and only four per core. Duplicate misses do not issue requests to the L2-cache.
