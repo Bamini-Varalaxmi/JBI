@@ -185,3 +185,49 @@ JBI Functional Block Diagram
 
 ![Screenshot from 2024-10-29 15-52-27](https://github.com/user-attachments/assets/7a1fdc9f-d94f-44cd-b487-8e74606c6d94)
 
+
+# OpenSparc T1 (detailed)
+
+Sun Microsystems began shipping the UltraSPARC T1 chip multithreaded (CMT) processor in December 2005. Sun surprised the
+industry by announcing that it would not only ship the processor
+but also open-source the RTL design of this processor. By March
+2006, UltraSPARC T1 had been open-sourced in a distribution called
+OpenSPARC T1.
+
+## OpenSPARC T1 architecture
+The OpenSPARC T1 processor is a highly integrated processor that
+implements the 64-bit SPARC V9 architecture. The OpenSPARC
+T1 processor contains eight SPARC processor cores, which each have
+full hardware support for four threads. Each SPARC core has an
+instruction cache, a data cache, and a fully associative instruction
+and data translation lookaside buffers (TLB). The eight SPARC cores
+are connected through a crossbar to an on-chip unified level 2 cache
+(L2-cache).
+  The four on-chip dynamic random access memory (DRAM) controllers directly interface to the double data rate-synchronous DRAM
+(DDR2 SDRAM). Additionally, there is an on-chip J-Bus controller
+that provides an interconnect between the OpenSPARC T1 processor
+and the I/O subsystem.
+The features of the OpenSPARC T1 processor include [4]:
+• 8 SPARC V9 CPU cores, with 4 threads per core, for a total of
+32 threads
+
+• 132 Gbytes/sec crossbar interconnect for on-chip communication
+
+• 16 Kbytes of primary (Level 1) instruction cache per CPU core
+
+• 8 Kbytes of primary (Level 1) data cache per CPU core
+
+• 3 Mbytes of secondary (Level 2) cache - 4 way banked, 12 way
+associative shared by all CPU cores
+
+• 4 DDR-II DRAM controllers - 144-bit interface per channel, 25
+GBytes/sec peak total bandwidth
+
+• IEEE 754 compliant floating-point unit (FPU), shared by all
+CPU cores
+
+External interfaces:
+
+• J-Bus interface (JBI) for I/O - 2.56 Gbytes/sec peak bandwidth,
+128-bit multiplexed address/data bus
+• Serial system interface (SSI) for boot PROM
