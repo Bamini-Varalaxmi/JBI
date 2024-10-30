@@ -83,3 +83,9 @@ stages are:
 ![Screenshot from 2024-10-30 21-04-25](https://github.com/user-attachments/assets/e42942a3-23b8-47c1-b6aa-22bbb29b16fa)
 
                       SPARC Core Pipeline
+
+Each SPARC core has the following units:
+1. Instruction fetch unit (IFU) includes the following pipeline stages
+- fetch, thread selection, and decode. The IFU also includes an
+instruction cache complex.
+2. Execution unit (EXU) includes the execute stage of the pipeline.
