@@ -2,7 +2,7 @@
 ## Open SPARC T1 Processor
 ### System level Block diagram:
 
-![Procesador-OpenSPARC-T1](https://github.com/user-attachments/assets/3d1c25ff-a094-4432-8aeb-5bf62ccec128)
+![opskt1](https://github.com/user-attachments/assets/24ef0ab8-d456-4590-9946-b42238d3dddc)
 
 
 ### SPARC Core
